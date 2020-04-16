@@ -100,6 +100,7 @@ SimpleDateFormat sdf=new SimpleDateFormat("dd-mm-yyyy");
 	@Override
 	public int compareTo(Project o) {
 		
+		/*return this.getDomain().compareTo(o.getDomain());*/
 	if(this.id > o.id) 
 		{
 			return 1; 

@@ -1,14 +1,16 @@
 package practice;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.TreeMap;
-public class ProjectUtils 
+import java.util.Map.Entry;
+
+public class Utils 
 {
-public static Map<Project,Employee> loadProjects() throws ParseException 
+	public static Map<Project,Employee> loadProjects() throws ParseException 
 	{
 		Employee e1=new Employee(101,"aaaa",30000.00,"aa@gmail.com");
 		Employee e2=new Employee(102,"bbbb",40000.00,"bb@gmail.com");
@@ -38,45 +40,49 @@ public static Map<Project,Employee> loadProjects() throws ParseException
 		map.put(p9,e5);
 		map.put(p10,e4);
 		return map;
-}
-public static void displayByProjectID(Map<Project,Employee> map)
-	{
-		
-		 TreeMap<Project, Employee> tm = new TreeMap<Project,Employee>(map);
-		 
-		 tm.entrySet().stream().forEach(t->System.out.println(t));
 		
 	}
 	
-	public static void displayByProjectDomain(Map<Project,Employee> map)
+	
+	
+	public static void displayByProjectID(Map<Project,Employee> map)
 	{
-		
 		Comparator<Map.Entry<Project,Employee>> c=new Comparator<Map.Entry<Project,Employee>>() {
 
 
 			@Override
 			public int compare(Entry<Project, Employee> o1, Entry<Project, Employee> o2) {
 				
-				return o1.getKey().getDomain().compareTo(o2.getKey().getDomain());
+				
+				
+				if(o1.getKey().getId()> o2.getKey().getId()) 
+				{
+					return 1; 
+				}
+				else if(o1.getKey().getId() < o2.getKey().getId())
+				{
+					return -1;
+				 
+				  } 
+				else 
+				{
+					return 0;
+					}
+				
 				
 			}
-			
-		};
 		
+	};
 		map.entrySet().stream().sorted(c).forEach(t->System.out.println(t));
 	}
 	
-}
-	
-
+	public static void displayByProjectDomain(Map<Project,Employee> map)
+	{
 		
+TreeMap<Project, Employee> tm = new TreeMap<Project,Employee>(map);
+		 
+		 tm.entrySet().stream().forEach(t->System.out.println(t));
 		
-	
-
-
-
-		
-
-	
-
-
+			
+		}
+	}

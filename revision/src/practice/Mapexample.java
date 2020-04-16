@@ -9,7 +9,7 @@ public class Mapexample
 
 	public static void main(String[] args) throws ParseException 
 	{
-		System.out.println("Enter your choice \n 1.Load projects \n 2.Display by projectId \n 3.Display by prpject domain \n 4.exit");
+		System.out.println("Enter your choice \n 1.Load projects \n 2.Display by projectId \n 3.Display by project domain \n 4.exit");
 		Scanner sc=new Scanner(System.in);
 		int ch=sc.nextInt();
 		Map<Project,Employee> map=ProjectUtils.loadProjects();
