@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login page</title>
+<script>  
+function validate(){  
+var name=document.forms["login"]["username"].value;  
+var password=document.forms["login"]["password"].value;  
+  
+if (name==""|| name==null)
+{  
+  alert("username shouldn't be empty");  
+  return false;  
+}else if(password.length<8)
+{  
+  alert("password should contain minimum 8 characters");  
+  return false;  
+  }  
+}  
+</script>  
+</head>
+
+<body>
+<div align="center">
+
+<form name="login" onsubmit=" return validate()">
+<h1>Loginpage</h1>
+
+<label>UserName</label>
+<input type="text" name="username"/><br>
+<label>Password</label>
+<input type="password" name="password"/><br>
+
+<input type="submit" value="submit"/><br>
+</form>
+
+</div>
+</body>
+</html>
